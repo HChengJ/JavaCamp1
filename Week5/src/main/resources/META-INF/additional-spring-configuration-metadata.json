@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "msg.name",
+      "type": "java.lang.String",
+      "description": "Description for msg.name."
+  }
+] }

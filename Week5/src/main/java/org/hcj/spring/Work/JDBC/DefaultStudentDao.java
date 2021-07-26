@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @Repository
-public class DefaultStudentDao implements StudentDao{
+public class DefaultStudentDao implements  StudentDao{
     @Autowired
     private DataSource dataSource;//hikariCP
 
