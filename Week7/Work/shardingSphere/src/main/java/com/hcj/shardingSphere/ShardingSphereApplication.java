@@ -5,10 +5,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Import;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @MapperScan("com.hcj.shardingSphere.mapper")
-//@MapperScan("com.hcj.shardingSphere.dao")
 public class ShardingSphereApplication {
 
 	public static void main(String[] args) {

@@ -1,7 +1,7 @@
 package com.hcj.shardingSphere.service.impl;
 
-import com.hcj.shardingSphere.entity.User;
 import com.hcj.shardingSphere.dao.UserDao;
+import com.hcj.shardingSphere.entity.User;
 import com.hcj.shardingSphere.service.UserService;
 import org.springframework.stereotype.Service;
 

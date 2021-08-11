@@ -16,11 +16,11 @@
     <!--查询单个-->
     <select id="queryById" resultMap="UserMap">
         select id,
-               name,
+               `name`,
                pwd,
                alias,
                certificate_num,
-               status,
+               `status`,
                create_time,
                update_time
         from electronic_commerce.tf_c_user
@@ -30,11 +30,11 @@
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="UserMap">
         select id,
-               name,
+               `name`,
                pwd,
                alias,
                certificate_num,
-               status,
+               `status`,
                create_time,
                update_time
         from electronic_commerce.tf_c_user limit #{offset}, #{limit}
@@ -43,14 +43,14 @@
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="UserMap">
         select
-        id, name, pwd, alias, certificate_num, status, create_time, update_time
+        id, `name`, pwd, alias, certificate_num, `status`, create_time, update_time
         from electronic_commerce.tf_c_user
         <where>
             <if test="id != null">
                 and id = #{id}
             </if>
             <if test="name != null and name != ''">
-                and name = #{name}
+                and `name` = #{name}
             </if>
             <if test="pwd != null and pwd != ''">
                 and pwd = #{pwd}
@@ -62,7 +62,7 @@
                 and certificate_num = #{certificateNum}
             </if>
             <if test="status != null and status != ''">
-                and status = #{status}
+                and `status` = #{status}
             </if>
             <if test="createTime != null">
                 and create_time = #{createTime}
@@ -75,12 +75,12 @@
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into electronic_commerce.tf_c_user(name, pwd, alias, certificate_num, status, create_time, update_time)
+        insert into electronic_commerce.tf_c_user(`name`, pwd, alias, certificate_num, `status`, create_time, update_time)
         values (#{name}, #{pwd}, #{alias}, #{certificateNum}, #{status}, #{createTime}, #{updateTime})
     </insert>
 
     <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into electronic_commerce.tf_c_user(name, pwd, alias, certificate_num, status, create_time, update_time)
+        insert into electronic_commerce.tf_c_user(`name`, pwd, alias, certificate_num, `status`, create_time, update_time)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.name}, #{entity.pwd}, #{entity.alias}, #{entity.certificateNum}, #{entity.status},
@@ -89,15 +89,15 @@
     </insert>
 
     <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into electronic_commerce.tf_c_user(name, pwd, alias, certificate_num, status, create_time, update_time)
+        insert into electronic_commerce.tf_c_user(`name`, pwd, alias, certificate_num, `status`, create_time, update_time)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.name}, #{entity.pwd}, #{entity.alias}, #{entity.certificateNum}, #{entity.status},
             #{entity.createTime}, #{entity.updateTime})
         </foreach>
         on duplicate key update
-        name = values(name) , pwd = values(pwd) , alias = values(alias) , certificate_num = values(certificate_num) ,
-        status = values(status) , create_time = values(create_time) , update_time = values(update_time)
+        `name` = values(`name`) , pwd = values(pwd) , alias = values(alias) , certificate_num = values(certificate_num) ,
+        `status` = values(`status`) , create_time = values(create_time) , update_time = values(update_time)
     </insert>
 
     <!--通过主键修改数据-->
@@ -105,7 +105,7 @@
         update electronic_commerce.tf_c_user
         <set>
             <if test="name != null and name != ''">
-                name = #{name},
+                `name` = #{name},
             </if>
             <if test="pwd != null and pwd != ''">
                 pwd = #{pwd},
@@ -117,7 +117,7 @@
                 certificate_num = #{certificateNum},
             </if>
             <if test="status != null and status != ''">
-                status = #{status},
+                `status` = #{status},
             </if>
             <if test="createTime != null">
                 create_time = #{createTime},
