@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.parser.ParserConfig;
 import io.kimmking.rpcfx.api.RpcfxRequest;
 import io.kimmking.rpcfx.api.RpcfxResponse;
+import io.kimmking.rpcfx.exception.CustomException;
 import io.kimmking.rpcfx.netty.client.RpcNettyClientSync;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
@@ -49,7 +50,7 @@ public class RpcInvocationHandler implements InvocationHandler {
         RpcfxResponse rpcResponse;
         try {
             rpcResponse = RpcNettyClientSync.getInstance().getResponse(rpcRequest, url);
-        } catch (InterruptedException | URISyntaxException e) {
+        } catch (CustomException | InterruptedException | URISyntaxException e) {
             e.printStackTrace();
             return null;
         }
