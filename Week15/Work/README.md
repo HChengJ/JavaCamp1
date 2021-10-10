@@ -12,5 +12,5 @@ Java开发中比较高级的应用，是分布式系统，其中采用了分布�
 
 下图是我对这段时间所学知识画的架构图。
 
-![Java](Week15/Work/pic/Java.png)
+![Java](https://github.com/HChengJ/JavaCamp1/blob/main/Week15/Work/pic/Java.png)
 
